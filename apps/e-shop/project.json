@@ -2,10 +2,7 @@
   "name": "e-shop",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": [
-    "nx-shop",
-    "ecom"
-  ],
+  "prefix": "nx-shop",
   "sourceRoot": "apps/e-shop/src",
   "tags": [],
   "targets": {
