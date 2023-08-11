@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -7,7 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'nx-shop-main-nav',
@@ -20,11 +20,12 @@ import { CommonModule } from '@angular/common';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    CommonModule
+    AsyncPipe,NgIf,NgFor
   ]
 })
 export class MainNavComponent {
   private breakpointObserver = inject(BreakpointObserver);
+  @Input() categories:string[]|null=null;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
