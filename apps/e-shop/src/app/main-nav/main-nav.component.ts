@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'nx-shop-main-nav',
@@ -20,7 +21,8 @@ import { AsyncPipe, NgFor, NgIf } from '@angular/common';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    AsyncPipe,NgIf,NgFor
+    AsyncPipe,NgIf,NgFor,
+    RouterLink
   ]
 })
 export class MainNavComponent {

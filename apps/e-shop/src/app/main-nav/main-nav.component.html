@@ -6,7 +6,7 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list *ngIf="categories">
-      <a mat-list-item href="#" *ngFor="let category of categories">{{category}}</a>
+      <a mat-list-item [routerLink]="['category',category]" *ngFor="let category of categories">{{category}}</a>
     </mat-nav-list>
   </mat-sidenav>
 
