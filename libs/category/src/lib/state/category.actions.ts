@@ -1,13 +1,13 @@
 import { createAction, props } from '@ngrx/store';
 
-export const getCategories = createAction('[Category] Get Categories');
+export const getCategories = createAction('[Home Page] Load Categories');
 
 export const getCategoriesSuccess  = createAction(
-    '[Category] Get Categories Success',
+    '[Get Categories API] Load Categories Success',
     props<{categories:string[]}>()
     );
 
 export const getCategoriesFailure  = createAction(
-    '[Category] Get Categories Failure',
+    '[Get Categories API] Load Categories Failure',
     props<{error:string}>()
     );
