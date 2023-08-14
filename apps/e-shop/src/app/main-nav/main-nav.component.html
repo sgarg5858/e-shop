@@ -9,9 +9,21 @@
     <mat-nav-list *ngIf="categories">
 
       <a mat-list-item 
-      [routerLink]="['category',category]" 
+      [routerLink]="['products']" 
+      >All Products</a>
+      
+      <a mat-list-item 
+      [routerLink]="['products','category',category]" 
       *ngFor="let category of categories"
       >{{category}}</a>
+
+      <a mat-list-item 
+      [routerLink]="['cart']" 
+      >View Cart</a>
+
+      <a mat-list-item 
+      [routerLink]="['orders']" 
+      >View Orders</a>
       
     </mat-nav-list>
 

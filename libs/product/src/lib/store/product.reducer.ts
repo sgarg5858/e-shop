@@ -1,5 +1,5 @@
 import { createFeature, createReducer, on } from "@ngrx/store"
-import { ProductsForCategoryActions } from "./product.actions"
+import { ProductActions } from "./product.actions"
 import { Product } from "./product";
 
 export interface ProductState{
@@ -17,7 +17,9 @@ export const initialProductState:ProductState={
 }
 export const productReducer = createReducer(
     initialProductState,
-    on(ProductsForCategoryActions.loadProducts,(state,_) => {
+    on(
+        ProductActions.loadAllProducts || ProductActions.loadProductsByCategory 
+        ,(state,_) => {
         return {
             ...state,
             loadingProducts:true,
@@ -26,7 +28,7 @@ export const productReducer = createReducer(
             productCount:0
         }
     }),
-    on(ProductsForCategoryActions.productsLoadedSuccess,(state,actions) => {
+    on(ProductActions.productsLoadedSuccess,(state,actions) => {
         return {
             ...state,
             loadingProducts:false,
@@ -34,7 +36,7 @@ export const productReducer = createReducer(
             productCount:actions.products.length ?? 0
         }
     }),
-    on(ProductsForCategoryActions.productsLoadedFailure,(state,action) => {
+    on(ProductActions.productsLoadedFailure,(state,action) => {
         return {
             ...state,
             loadingProducts:false,

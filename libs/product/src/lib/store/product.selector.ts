@@ -8,7 +8,7 @@ export const loadingProducts =  createSelector(
     selectProductState,
     (state:ProductState)=>state?.loadingProducts
 )
-export const products = createSelector(
+export const allProducts = createSelector(
     selectProductState,
     (state:ProductState)=>state?.products
 )

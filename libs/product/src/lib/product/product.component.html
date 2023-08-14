@@ -1,6 +1,23 @@
-<h1>{{categoryName}}</h1>
-<ul *ngIf="products$| async as products">
-    <li *ngFor="let product of products">
-        {{product.title}}
-    </li>
-</ul>
+<ng-container *ngIf="loadingProducts$ | async">
+    <mat-spinner></mat-spinner>
+</ng-container>
+
+<ng-container *ngIf="products$| async as products">
+    <mat-card class="product-card" *ngFor="let product of products">
+        <mat-card-header>
+          <div mat-card-avatar class="product-image"></div>
+          <mat-card-title>{{product.title}}</mat-card-title>
+          <mat-card-subtitle>{{product.category}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-lg-image [src]="product.image" [alt]="product.title">
+        <mat-card-content>
+          <p class="description">
+           {{product.description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions style="display: flex;justify-content: space-around;">
+          <button mat-raised-button color="primary">Buy Now</button>
+          <button mat-raised-button color="secondary">Add to card</button>
+        </mat-card-actions>
+      </mat-card>
+</ng-container>

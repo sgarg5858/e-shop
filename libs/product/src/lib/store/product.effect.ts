@@ -1,19 +1,35 @@
 import { inject } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { ProductService } from "../product.service";
-import { ProductsForCategoryActions } from "./product.actions";
+import { ProductActions, } from "./product.actions";
 import { catchError, map, of, switchMap } from "rxjs";
 import { Product } from "./product";
 
-export const loadProducts = createEffect(
+export const loadProductsByCategory = createEffect(
     (actions$ = inject(Actions), 
      productService = inject(ProductService)
     ) =>{
         return actions$.pipe(
-            ofType(ProductsForCategoryActions.loadProducts),
+            ofType(ProductActions.loadProductsByCategory),
             switchMap(({categoryName})=> productService.getProductsForCategory(categoryName).pipe(
-                map((products:Product[])=> ProductsForCategoryActions.productsLoadedSuccess({products})),
-                catchError((err)=> of(ProductsForCategoryActions.productsLoadedFailure({error:"API Failed"})))
+                map((products:Product[])=> ProductActions.productsLoadedSuccess({products})),
+                catchError((err)=> of(ProductActions.productsLoadedFailure({error:"API Failed"})))
+            ) 
+            )
+        )
+    },
+    {functional:true}
+)
+
+export const loadAllProductsEffect = createEffect(
+    (actions$ = inject(Actions), 
+     productService = inject(ProductService)
+    ) =>{
+        return actions$.pipe(
+            ofType(ProductActions.loadAllProducts),
+            switchMap(()=> productService.getAllProducts().pipe(
+                map((products:Product[])=> ProductActions.productsLoadedSuccess({products})),
+                catchError(()=> of(ProductActions.productsLoadedFailure({error:"API Failed"})))
             ) 
             )
         )

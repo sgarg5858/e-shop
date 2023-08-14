@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from './store/product';
+import { delay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,11 @@ import { Product } from './store/product';
 export class ProductService {
 
   constructor(private httpClient:HttpClient) { }
+
+  getAllProducts()
+  {
+    return this.httpClient.get<Product[]>(`https://fakestoreapi.com/products`);
+  }
 
   getProductsForCategory(category:string)
   {
