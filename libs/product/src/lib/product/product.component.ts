@@ -2,6 +2,8 @@ import { Component, Input, inject } from '@angular/core';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { ProductsForCategoryActions } from '../store/product.actions';
+import { products } from '../store/product.selector';
+
 @Component({
   selector: 'nx-shop-product',
   standalone: true,
@@ -12,9 +14,12 @@ import { ProductsForCategoryActions } from '../store/product.actions';
 })
 export class ProductComponent {
 
-   store = inject(Store)
+   store = inject(Store);
 
   _categoryName:string|null=null;
+
+  products$ = this.store.select(products);
+
   @Input() set categoryName(categoryName:string|null)
   {
     this._categoryName=categoryName;
