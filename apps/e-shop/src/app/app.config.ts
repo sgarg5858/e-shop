@@ -1,6 +1,7 @@
 import { ApplicationConfig, isDevMode } from '@angular/core';
 import {
   provideRouter,
+  withComponentInputBinding,
   withEnabledBlockingInitialNavigation,
 } from '@angular/router';
 import { appRoutes } from './app.routes';
@@ -13,7 +14,7 @@ import { provideHttpClient } from '@angular/common/http';
 import {CategoryEffects, categoryFeature} from '@nx-shop/category'
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(appRoutes, withEnabledBlockingInitialNavigation()), 
+    provideRouter(appRoutes, withEnabledBlockingInitialNavigation(),withComponentInputBinding()), 
     provideAnimations(),
     provideHttpClient(),
     provideStore(),
