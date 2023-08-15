@@ -2,7 +2,7 @@ import { inject } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { LoginService } from "../login.service";
 import { LoginActions } from "./login.actions";
-import { catchError, delay, map, mergeMap, of, tap } from "rxjs";
+import { catchError, map, mergeMap, of, tap } from "rxjs";
 import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 

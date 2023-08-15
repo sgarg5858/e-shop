@@ -40,6 +40,20 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>e-shop</span>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <span>Profile</span>
+        </button>
+
+        <button mat-menu-item>
+          <span>Log out</span>
+        </button>
+      </mat-menu>
+
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>

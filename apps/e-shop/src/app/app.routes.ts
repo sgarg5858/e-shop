@@ -5,7 +5,7 @@ export const appRoutes: Route[] = [
     {
         path:'products',
         loadChildren:()=>import('@nx-shop/product').then(c=>c.ProductRoutes),
-        canMatch:[authLoginGuard]
+        canActivate:[authLoginGuard]
     },
     {
         path:'cart',
