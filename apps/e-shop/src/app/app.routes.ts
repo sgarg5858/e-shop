@@ -1,9 +1,11 @@
 import { Route } from '@angular/router';
+import { authLoginGuard } from '@nx-shop/user';
 
 export const appRoutes: Route[] = [
     {
         path:'products',
-        loadChildren:()=>import('@nx-shop/product').then(c=>c.ProductRoutes)
+        loadChildren:()=>import('@nx-shop/product').then(c=>c.ProductRoutes),
+        canMatch:[authLoginGuard]
     },
     {
         path:'cart',

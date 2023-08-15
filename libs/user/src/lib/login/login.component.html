@@ -1,5 +1,5 @@
 <div class="login-form-container">
-    <form [formGroup]="loginForm" (ngSubmit)="submitForm($event)">
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
 
    <mat-card>
     <mat-card-title>Login Form</mat-card-title>
@@ -10,9 +10,7 @@
         <mat-error *ngIf="loginForm.controls.username.dirty && loginForm.controls.username.hasError('required')">
             Email is required
         </mat-error>
-        <mat-error *ngIf="loginForm.controls.username.dirty && loginForm.controls.username.hasError('email')">
-            Email should be valid
-        </mat-error>
+
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -26,7 +24,9 @@
         </mat-error>
     </mat-form-field>
 
-    <button  type="submit" mat-raised-button color="primary">Login</button>
+    <button type="submit" mat-raised-button color="primary">
+     Login    
+    </button>
 
    </mat-card>
 
