@@ -27,6 +27,7 @@ export class ProductComponent{
 
   @Input() set categoryName(categoryName:string|null)
   {
+    console.log(categoryName);
     this._categoryName=categoryName;
     if(this._categoryName)
     this.store.dispatch(ProductActions.loadProductsByCategory({categoryName:this._categoryName}));

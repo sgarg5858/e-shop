@@ -1,0 +1,19 @@
+.login-form-container{
+    display: flex;
+    min-height: 80vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+mat-card{
+    width: 400px;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+mat-form-field{
+    min-width: 300px;
+    width: 350px;
+}
