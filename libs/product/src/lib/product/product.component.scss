@@ -1,0 +1,21 @@
+:host{
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+    flex-wrap: wrap;
+
+}
+mat-card.product-card {
+    width: 300px;
+    min-width: 300px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .product-image {
+    background-size: cover;
+  }
+  .description{
+    height: 80px;
+    overflow: hidden;
+  }
