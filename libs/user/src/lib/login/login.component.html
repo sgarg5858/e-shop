@@ -1,0 +1,35 @@
+<div class="login-form-container">
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm($event)">
+
+   <mat-card>
+    <mat-card-title>Login Form</mat-card-title>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Email:</mat-label>
+        <input type="text" matInput formControlName="username" placeholder="Placeholder">
+        <mat-error *ngIf="loginForm.controls.username.dirty && loginForm.controls.username.hasError('required')">
+            Email is required
+        </mat-error>
+        <mat-error *ngIf="loginForm.controls.username.dirty && loginForm.controls.username.hasError('email')">
+            Email should be valid
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Password:</mat-label>
+        <input type="password" matInput formControlName="password" placeholder="Placeholder">
+        <mat-error *ngIf="loginForm.controls.password.dirty && loginForm.controls.password.hasError('required')">
+            Password is required
+        </mat-error>
+        <mat-error *ngIf="loginForm.controls.password.dirty && loginForm.controls.password.hasError('minlength')">
+            Password must contain atleast {{loginForm.controls.password.errors?.['minlength']?.requiredLength}} characters
+        </mat-error>
+    </mat-form-field>
+
+    <button  type="submit" mat-raised-button color="primary">Login</button>
+
+   </mat-card>
+
+
+    </form>
+</div>

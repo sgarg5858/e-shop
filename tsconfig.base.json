@@ -18,7 +18,8 @@
       "@nx-shop/cart": ["libs/cart/src/index.ts"],
       "@nx-shop/category": ["libs/category/src/index.ts"],
       "@nx-shop/home": ["libs/home/src/index.ts"],
-      "@nx-shop/product": ["libs/product/src/index.ts"]
+      "@nx-shop/product": ["libs/product/src/index.ts"],
+      "@nx-shop/user": ["libs/user/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

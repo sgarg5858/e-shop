@@ -10,8 +10,12 @@ export const appRoutes: Route[] = [
         loadChildren:()=>import('@nx-shop/cart').then(c=>c.CartRoutes)
     },
     {
+        path:'user',
+        loadChildren:()=>import('@nx-shop/user').then(c=>c.userRoutes)
+    },
+    {
         path:'',
         pathMatch:'full',
-        redirectTo:'products'
+        redirectTo:'user'
     }
 ];
